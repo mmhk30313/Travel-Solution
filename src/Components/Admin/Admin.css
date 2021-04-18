@@ -1,0 +1,44 @@
+.hover{
+    cursor: pointer;
+    padding: 12px;
+    border-radius: 10px;
+}
+.hover:hover{
+    background-color: #7a7881;
+    color: #f8f4f7;
+}
+.activate{
+    background: #7f7e85;
+    color: white;
+}
+.admin-work{
+    height: 76.8vh;
+}
+.make-admin-form{
+    margin: 60px 0 0 0;
+    width: 650px;
+    padding: 50px 25px !important;
+}
+@media(max-width: 1023px){
+    .make-admin-form{
+        margin: 20px 0;
+        width: 90%;
+        padding: 10px 10px !important;
+    }
+    .admin-work{
+        height: fit-content !important;
+    }
+    .admin-header{
+        display: inline !important;
+    }
+    .admin-work-title, .admin-name{
+        text-align: center !important;
+    }
+    .admin-name{
+        display: none;
+    }
+    .make-admin-form{
+        width: 100%;
+    }
+
+}

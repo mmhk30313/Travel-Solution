@@ -1,0 +1,15 @@
+.footer-link a{
+    color: white;
+    text-decoration: none;
+    /* transition: all ease-in-out 1.5s; */
+}
+.footer-link a:hover::before{
+    content: "- ";
+    /* transform: translateX(-2px); */
+}
+.footer-social-link a img{
+    transition: all ease-in-out 0.5s;
+}
+.footer-social-link a img:hover{
+    transform: translateY(-2px);
+}

@@ -1,23 +1,62 @@
-import logo from './logo.svg';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
 import './App.css';
+import ScrollToTop from 'react-scroll-up';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { createContext, useState } from "react";
+import Home from "./Components/Home/Home";
+import Navigation from "./Components/Navigation/Navigation";
+import Login from "./Components/Login/Login";
+import PrivateRoute from "./Components/PrivateRoute/PrivateRoute";
+import Admin from "./Components/Admin/Admin";
+import Client from "./Components/Client/Client";
 
+
+export const UserContext = createContext();
 function App() {
+  const [loggedInUser, setLoggedInUser] = useState({});
+  const [allServices, setAllServices] = useState([]);
+  const [allClients, setAllClients] = useState([]);
+  const [allHotels, setAllHotels] = useState([]);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="m-0 p-0">
+      <UserContext.Provider value={[loggedInUser, setLoggedInUser, allServices, setAllServices, allClients, setAllClients,allHotels, setAllHotels]}>
+        <Router>
+          <Switch>
+            <Route exact path="/">
+              <Navigation/>
+              <Home/>
+            </Route>
+            <Route path="/home">
+              <Navigation/>
+              <Home/>
+            </Route>
+            <Route path='/login'>
+              <Navigation/>
+              <Login/>
+            </Route>
+            {/* <Route path="/admin">
+              <Admin/>
+            </Route> */}
+            <PrivateRoute path="/admin">
+              <Admin/>
+            </PrivateRoute>
+            <Route path="/client">
+              <Client/>
+            </Route>
+            {/* <PrivateRoute path="/client/:key">
+              <Client/>
+            </PrivateRoute> */}
+          </Switch>
+        </Router>
+        <ScrollToTop showUnder={160}>
+          <p className='btn btn-info text-danger font-weight-bold rounded-circle'>UP</p>
+        </ScrollToTop>
+      </UserContext.Provider>
     </div>
   );
 }

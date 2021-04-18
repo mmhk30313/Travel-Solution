@@ -1,0 +1,20 @@
+.login-field{
+    width: 750px;
+    height: 300px;
+    margin-top: 185px;
+}
+.login-field button{
+    display: flex;
+    justify-content: center;
+    width: fit-content !important;
+}
+@media (max-width: 750px){
+    .login-field{
+        margin-top: 80px !important;
+        width: 90% !important;
+    }
+    .login-field button{
+        display: inline;
+        width: 100% !important;
+    }
+}

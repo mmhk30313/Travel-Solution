@@ -1,0 +1,9 @@
+.home-form{
+    padding: 0 205px;
+    margin: 30px 0 0 0;
+}
+@media (max-width: 760px){
+    .home-form{
+        padding: 0 !important;
+    }
+}

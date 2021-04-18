@@ -1,0 +1,32 @@
+.hover-client{
+    cursor: pointer;
+    padding: 12px;
+    border-radius: 10px;
+}
+.hover-client:hover{
+    background-color: #7a7881;
+    color: #f8f4f7;
+}
+.activate-client{
+    background: #7f7e85;
+    color: white;
+}
+.client-work{
+    height: 76.8vh;
+}
+
+@media(max-width: 1023px){
+    .client-work{
+        height: fit-content !important;
+    }
+    .client-header{
+        display: inline !important;
+    }
+    .client-work-title, .client-name{
+        text-align: center !important;
+    }
+    .client-name{
+        display: none;
+    }
+
+}
