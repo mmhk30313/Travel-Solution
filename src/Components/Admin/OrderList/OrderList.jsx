@@ -1,11 +1,39 @@
 import { CircularProgress } from '@material-ui/core';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 const OrderList = () => {
     const [allUserServices, setAllUserServices] = useState([]);
+    useEffect(() =>{
+        fetch("http://localhost:5000/all-user-services")
+        .then(res => res.json())
+        .then(data =>{
+            // console.log(data);
+            setAllUserServices(data);
+        })
+    },[])
+    // console.log(allUserServices);
+    const handleStatusChange = (id)=>{
+        const statusId = document.getElementById(`status-${id}`);
+        // console.log(id+" => "+ statusId.value);
+        statusId.classList.remove(...statusId.classList);
+        statusId.classList.add("bg-"+statusId.value, "border-none", "form-select", "form-select-lg", "p-2", "rounded");
+        fetch(`http://localhost:5000/update-status/${id}`, {
+            method: "POST",
+            body: JSON.stringify({status: statusId.value}),
+            headers: {
+                'Content-type': 'application/json; charset=UTF-8',
+            }
+        })
+        .then(res => res.json())
+        .then(data => {
+            if(!data){
+                console.log(data);
+            }
+        })
+    }
     return (
         <div>
-            <div className="input-form p-1">
+            <div className="input-form p-2">
                 <div className="scrolling py-3 px-4 w-100 mx-auto my-3 card shadow bg-white table-responsive">
                     <div className="table">
                         <table className="table table-hover">
@@ -19,26 +47,31 @@ const OrderList = () => {
                                 </tr>
                             </thead>
                             <tbody>
-                                {/* {
-                                    services && services.map(service => <tr key={service._id}>
-                                        <td colSpan="3">{service.serviceName}</td>
-                                        <td className='text-center' colSpan="2">{service.authorName}</td>
-                                        <td className='text-center'>${service.servicePrice}</td>
+                                {
+                                    allUserServices.length > 0 && allUserServices.map(service => <tr key={service._id}>
+                                        <td colSpan="2">{service.setName}</td>
+                                        <td className='text-center' colSpan="4">{service.email}</td>
+                                        <td className='text-center'>${service.office}</td>
+                                        <td className='text-center'>{service.cardType}</td>
                                         <td className='text-center'>
-                                            <span style={{cursor: 'pointer'}}><img style={{height: '30px'}} className="mr-1" src={editIcon} alt=""/></span>
-                                            <span onClick={() => handleDeleteservice(service._id)} style={{cursor: 'pointer'}}><img style={{height: '30px'}} src={deleteIcon} alt=""/></span>
+                                            <select onChange={() =>handleStatusChange(service._id)} id={`status-${service._id}`} style={{cursor: 'pointer'}} className={`border-none form-select form-select-lg p-2 rounded bg-${service.status}`} aria-label=".form-select-sm example">
+                                                <option defaultValue>{service.status}</option>
+                                                <option className="bg-Pending text-Pending" value="Pending">Pending</option>
+                                                <option className="bg-Ongoing text-Ongoing" value="Ongoing">Ongoing</option>
+                                                <option className="bg-Done text-Done" value="Done">Done</option>
+                                            </select>
                                         </td>
                                     </tr>)
-                                } */}
+                                }
                                     {/* Delete Button E handleDelete function diye data delete korte hobe... */}
                             </tbody>
                         </table>
-                        {
-                            allUserServices.length === 0 && <div className="text-center d-flex justify-content-center">
-                            <CircularProgress color="secondary" />
-                        </div>
-                        }
                     </div>
+                    {
+                        allUserServices.length === 0 && <div className="text-center d-flex justify-content-center">
+                        <CircularProgress color="secondary" />
+                    </div>
+                    }
                 </div>
             </div> 
         </div>

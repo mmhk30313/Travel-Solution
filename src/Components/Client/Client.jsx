@@ -14,7 +14,7 @@ import BookingList from './BookingList/BookingList';
 import Review from './Review/Review';
 const Client = () => {
     const [loggedInUser, setLoggedInUser] = useContext(UserContext);
-    console.log(loggedInUser)
+    // console.log(loggedInUser)
     const [clientWork, setClientWork] = useState("Book Service");
     const [bookService, setBookService] = useState('activate-client');
     const [bookingList, setBookingList] = useState('');
@@ -67,12 +67,12 @@ const Client = () => {
                         <p className={`w-100 py-2  hover-client ${logout}`} onClick={() =>handleLogout()}><FontAwesomeIcon icon={faSignOutAlt}/><span> Logout</span></p>
                     </div>
                 </div>
-                <div style={{height: '99.8vh'}} className="col-md-9 px-0 pt-5 border-left border-dark">
-                    <div className="client-header d-flex justify-content-between mt-4 mb-2 px-3">
+                <div style={{height: "fit-content"}} className="col-md-9 px-0 border-left border-dark">
+                    <div className="client-header d-flex justify-content-between  pt-4 px-3">
                         <h5 className="client-work-title">{clientWork}</h5>
                         <h5 className="client-name">{loggedInUser.displayName}</h5>
                     </div>
-                    <div style={{height: 'fit-content'}} className="client-work bg-light w-100 mx-auto py-2 px-3">
+                    <div style={{height: `${clientWork === "Review" ? "91vh" : "fit-content"}`}} className="client-work bg-light w-100 mx-auto py-4 px-3">
                         {/* <AddService/> */}
                         {
                            clientWork === "Book Service" ? <BookService/>

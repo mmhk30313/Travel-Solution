@@ -21,6 +21,7 @@ const Login = () => {
     // console.log(location);
     let {pathname} = location;
     // console.log(location.state.from.pathname);
+    const [allAdmin, setAllAdmin] = useState([]);
     useEffect(() => {
         if(location.state && location.state.from.pathname === '/admin'){
             setMyUser('admin');
@@ -29,10 +30,16 @@ const Login = () => {
             // console.log(location.state)
             setMyUser('client');
         }
+        fetch(`http://localhost:5000/find-admins`)
+        .then(res => res.json())
+        .then(data => {
+        //    console.log(data);
+           setAllAdmin(data);
+        })
     },[location.state])
-    console.log(myUser);
+    // console.log(myUser);
     const {from} = location.state || { from: { pathname: "/"}};
-
+    
     const handleClick = () =>{
         const googleProvider = new firebase.auth.GoogleAuthProvider();
         firebase.auth().signInWithPopup(googleProvider)
@@ -47,22 +54,30 @@ const Login = () => {
                 photoURL,
                 userType: myUser
             }
-            if( ( location.state && location.state.from.pathname === '/admin' && myUser === 'client' )  || (!location.state && myUser === 'client') || ( !location.state && myUser === 'admin' && ( curUser.email === 'mehedihasan30313@gmail.com' || curUser.email ==='programminghero001@gmail.com' ) )){
+
+            const isAdminEmail = allAdmin.find( admin => admin.email === curUser.email);
+            // console.log(isAdminEmail);
+            // console.log(isAdminEmail);
+            if( ( location.state && location.state.from.pathname === '/admin' && myUser === 'client' )  || (!location.state && myUser === 'client') || ( !location.state && myUser === 'admin' && isAdminEmail )){
+                // console.log(1,"->", isAdminEmail)
                 setWrongMessage(false);
                 setLoggedInUser(curUser);
                 history.replace('/');
             }
             else if( location.state && myUser === 'client'){
+                // console.log(2,"->", isAdminEmail)
                 setLoggedInUser(curUser);
                 setWrongMessage(false);
                 history.replace(from);
             }
-            else if( location.state && myUser === 'admin' && ( curUser.email === 'mehedihasan30313@gmail.com' || curUser.email ==='programminghero001@gmail.com' ) ){
+            else if( location.state && myUser === 'admin' && isAdminEmail ){
+                // console.log(3,"->", isAdminEmail);
                 setLoggedInUser(curUser);
                 setWrongMessage(false);
                 history.replace(from);
             }
             else{
+                // console.log(4,"->", isAdminEmail)
                 setLoggedInUser({});
                 setWrongMessage("Sorry!!! you are not an admin of travel solution")
             }
@@ -74,13 +89,11 @@ const Login = () => {
             console.log(errorMessage, loggedInUser);
         });
     }
-    console.log(loggedInUser);
+    // console.log(loggedInUser);
     const handleUserClick = (userType) =>{
         setMyUser(userType);
     }
-    // const handleClick = () =>{
-    //     console.log("google click")
-    // }
+    
     return (
         <div data-aos="flip-up" data-aos-easing="ease-out-cubic" data-aos-duration="2000" className="jumbotron shadow bg-light mx-auto rounded text-center p-5 login-field" >
             <h4 data-aos="fade-down" data-aos-duration="4000" className='mb-4'>

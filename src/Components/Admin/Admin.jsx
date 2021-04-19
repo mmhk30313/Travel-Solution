@@ -81,12 +81,12 @@ const Admin = () => {
                         <p className={`w-100 py-2  hover ${logout}`} onClick={() =>handleLogout()}><FontAwesomeIcon icon={faSignOutAlt}/><span> Logout</span></p>
                     </div>
                 </div>
-                <div style={{height: '99.8vh'}} className="col-md-9 px-0 pt-5 border-left border-dark">
+                <div style={{height: `${adminWork === 'Add Service' || adminWork === "Make Admin" ? "99.8vh" : "fit-content"}`}} className="col-md-9 px-0 pt-5 border-left border-dark">
                     <div className="admin-header d-flex justify-content-between mt-5 mb-2 px-3">
                         <h5 className="admin-work-title">{adminWork}</h5>
                         <h5 className="admin-name">{loggedInUser.displayName}</h5>
                     </div>
-                    <div className="admin-work bg-light w-100 mx-auto p-3">
+                    <div style={{height: `${adminWork === 'Add Service' || adminWork === "Make Admin" ? "77.8vh" : "fit-content"}`}} className="admin-work bg-light w-100 mx-auto p-3">
                         {/* <AddService/> */}
                         {
                             adminWork === 'Order List' ? <OrderList/>

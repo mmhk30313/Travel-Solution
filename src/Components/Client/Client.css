@@ -12,7 +12,7 @@
     color: white;
 }
 .client-work{
-    height: 76.8vh;
+    height: fit-content;
 }
 
 @media(max-width: 1023px){

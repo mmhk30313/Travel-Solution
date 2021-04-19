@@ -1,8 +1,26 @@
 import { CircularProgress } from '@material-ui/core';
-import React, { useState } from 'react';
-
+import React, { useEffect, useState } from 'react';
+import deleteIcon from '../../../images/Icon/deleteIcon.png';
 const ManageService = () => {
     const [services, setServices] = useState([]);
+    useEffect(() =>{
+        fetch('http://localhost:5000/services')
+        .then(res => res.json())
+        .then(data => setServices(data));
+    },[])
+    const handleDeleteService =(id) =>{
+        // console.log(id);
+        fetch(`http://localhost:5000/delete-service/${id}`)
+        .then(res => res.json())
+        .then(data =>{
+            // console.log(data);
+            if(data.deletedCount){
+                fetch('http://localhost:5000/services')
+                .then(res => res.json())
+                .then(data => setServices(data));
+            }
+        })
+    }
     return (
         <div>
             <div className="input-form p-1">
@@ -18,17 +36,16 @@ const ManageService = () => {
                                 </tr>
                             </thead>
                             <tbody>
-                                {/* {
+                                {
                                     services && services.map(service => <tr key={service._id}>
-                                        <td colSpan="3">{service.serviceName}</td>
-                                        <td className='text-center' colSpan="2">{service.authorName}</td>
-                                        <td className='text-center'>${service.servicePrice}</td>
+                                        <td colSpan="2">{service.serviceName}</td>
+                                        <td className='text-center' colSpan="4">{service.description.substr(0, 25)+"..."}</td>
+                                        <td className='text-center'>${service.price}</td>
                                         <td className='text-center'>
-                                            <span style={{cursor: 'pointer'}}><img style={{height: '30px'}} className="mr-1" src={editIcon} alt=""/></span>
-                                            <span onClick={() => handleDeleteservice(service._id)} style={{cursor: 'pointer'}}><img style={{height: '30px'}} src={deleteIcon} alt=""/></span>
+                                            <span className='btn btn-danger round m-0 p-0' onClick={() => handleDeleteService(service._id)} style={{cursor: 'pointer'}}><img style={{height: '30px'}} src={deleteIcon} alt=""/></span>
                                         </td>
                                     </tr>)
-                                } */}
+                                }
                                     {/* Delete Button E handleDelete function diye data delete korte hobe... */}
                             </tbody>
                         </table>

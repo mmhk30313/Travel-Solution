@@ -32,7 +32,7 @@ const Hotels = () => {
                 {
                     hotels.map( hotel => <div key={hotel.id} className="col-md-4 mx-auto">
                     <div className=" justify-content-center text-center">
-                        <img className="rounded mx-auto w-100" style={{height: '300px'}} src={hotel.imgUrl} alt=""/>
+                        <img className="rounded shadow mx-auto w-100" style={{height: '300px'}} src={hotel.imgUrl} alt=""/>
                         <h6 style={{fontSize: "20px"}} className="mt-2 font-weight-bold">{hotel.name}</h6>
                         <p><img style={{height: '20px'}} src={map} alt=""/> <small>{hotel.place}</small></p>
                     </div>

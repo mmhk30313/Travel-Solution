@@ -6,6 +6,7 @@ import { UserContext } from '../../../App';
 const AddService = () => {
     const [loggedInUser, setLoggedInUser, allServices, setAllServices] = useContext(UserContext);
     const [modalShow, setModalShow] = useState(false);
+    
     const [addedService, setAddedService] = useState({});
     const titleRef = useRef();
     const descriptionRef = useRef();
@@ -55,7 +56,7 @@ const AddService = () => {
                 priceRef.current.value = null;
 
         // .....MODAL Bootstrap......
-                setModalShow(true)
+                setModalShow(true);
 
                 fetch('http://localhost:5000/services')
                 .then(res => res.json())

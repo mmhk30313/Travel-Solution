@@ -2,9 +2,9 @@
     width: 40%;
     margin-left: 30px;
 }
-.review-form{
+/* .review-form{
     height: 79.8vh;
-}
+} */
 @media(max-width: 1023px){
     .payment-form, .review-form{
         width: 100%;

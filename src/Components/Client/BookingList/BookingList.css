@@ -1,0 +1,17 @@
+.bg-Pending{
+    background-color: #ffcfcf;
+    color: #fc2323;
+}
+.bg-Ongoing{
+    background-color: #fffbda;
+    color: #ffa500;
+}
+.bg-Done{
+    background-color: #e6ffc1;
+    color: #80d401;
+}
+@media(max-width: 768px){
+    .status{
+        margin: 0 auto;
+    }
+}

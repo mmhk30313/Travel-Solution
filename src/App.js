@@ -1,13 +1,12 @@
 import {
   BrowserRouter as Router,
   Switch,
-  Route,
-  Link
+  Route
 } from "react-router-dom";
 import './App.css';
 import ScrollToTop from 'react-scroll-up';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 import Home from "./Components/Home/Home";
 import Navigation from "./Components/Navigation/Navigation";
 import Login from "./Components/Login/Login";
@@ -22,6 +21,14 @@ function App() {
   const [allServices, setAllServices] = useState([]);
   const [allClients, setAllClients] = useState([]);
   const [allHotels, setAllHotels] = useState([]);
+  useEffect(() => {
+    fetch('http://localhost:5000/services')
+    .then(res => res.json())
+    .then( data => {
+        setAllServices(data);
+    })
+    .catch(err => console.log(err, loggedInUser, setLoggedInUser))
+  },[])
   return (
     <div className="m-0 p-0">
       <UserContext.Provider value={[loggedInUser, setLoggedInUser, allServices, setAllServices, allClients, setAllClients,allHotels, setAllHotels]}>
@@ -45,9 +52,9 @@ function App() {
             <PrivateRoute path="/admin">
               <Admin/>
             </PrivateRoute>
-            <Route path="/client">
+            <PrivateRoute path="/client/:id">
               <Client/>
-            </Route>
+            </PrivateRoute>
             {/* <PrivateRoute path="/client/:key">
               <Client/>
             </PrivateRoute> */}

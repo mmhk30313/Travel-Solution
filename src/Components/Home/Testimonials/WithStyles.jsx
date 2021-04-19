@@ -1,15 +1,21 @@
 import React from 'react';
 
-const WithStyles = ({image,idx}) => {
-    // const {description, headline, image} = props;
-    console.log(image)
+const WithStyles = ({review}) => {
+    
+    const {name, img, description, company} = review;
     return (
-        <div className="">
-                <div className="card mx-1 text-center p-2">
-                <img src={image} alt=""/>
-                <h1>Heading-{idx}</h1>
+        <div className="my-5 mx-2">
+            <div className="card shadow p-3">
+                <div className="d-flex">
+                    <img style={{height: '80px'}} className="rounded-circle" src={img} alt=""/>
+                    <div className="my-auto mx-auto mt-2">
+                        <h6 className="text-info">{name}</h6>
+                        <p>{company}</p>
+                    </div>
+                </div>
+                <p className="text-justify text-success"><small>{description}</small></p>
             </div>
-            <br/><br/>
+
         </div>
     );
 };

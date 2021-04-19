@@ -26,16 +26,16 @@ const Navigation = () => {
                         <NavLink className="nav-link px-1" to="/contact">Contact</NavLink>
                         {
                             (loggedInUser.userType !== "client" || !loggedInUser) 
-                            ? <NavLink className="nav-link px-1" to="/admin">Admin</NavLink>
-                            : <NavLink to="/" className={`nav-link px-1 text-decoration-none mr-auto `}>
-                            <img style={{height: "30px"}} className="rounded-circle ml-2" src={loggedInUser.imgURL} alt=""/> <small className="ml-1 mr-2 font-weight-bold">{loggedInUser.displayName.match(/\b\w/g).join('')}</small>
+                            ? <NavLink className={`nav-link ${loggedInUser.email && "text-warning"}  px-1`} to="/admin">Admin</NavLink>
+                            : <NavLink to={`/client/booking`} className={`nav-link px-1 text-decoration-none mr-auto `}>
+                            <img style={{height: "30px"}} className="rounded-circle ml-2" src={loggedInUser.photoURL} alt=""/> <small className="ml-1 mr-2 font-weight-bold">{loggedInUser.displayName.match(/\b\w/g).join('')}</small>
                         </NavLink>
                         }
                         
                         {
                             !loggedInUser.email
                             ? <NavLink className="nav-link px-1" to="/login">Login</NavLink>
-                            : <p className="nav-link px-1" style={{cursor: 'pointer'}} onClick={() => handleLogout()}>Logout</p>
+                            : <p className="nav-link px-1 text-danger" style={{cursor: 'pointer'}} onClick={() => handleLogout()}>Logout</p>
                         }
                         
                     </Nav>
