@@ -39,7 +39,7 @@ const AddService = () => {
                 price,
                 imgUrl: data.data.display_url
             }
-            console.log(serviceDetails);
+            // console.log(serviceDetails);
             setAddedService(serviceDetails);
             fetch('http://localhost:5000/addService', {
                 method: "POST",
@@ -61,7 +61,7 @@ const AddService = () => {
                 fetch('http://localhost:5000/services')
                 .then(res => res.json())
                 .then(data => {
-                        console.log(data);
+                        // console.log(data);
                         setAllServices(data)
                     }
                 )

@@ -16,7 +16,7 @@ import ManageService from './ManageService/ManageService';
 import AddService from './AddService/AddService';
 const Admin = () => {
     const [loggedInUser, setLoggedInUser] = useContext(UserContext);
-    console.log(loggedInUser)
+    // console.log(loggedInUser)
     const [adminWork, setAdminWork] = useState("Order List");
     const [orderList, setOrderList] = useState('activate');
     const [addService, setAddService] = useState('');
@@ -24,7 +24,7 @@ const Admin = () => {
     const [makeAdmin, setMakeAdmin] = useState("");
     const [logout, setLogout] = useState("");
     const handleAdminWork = (work) =>{
-        console.log(work);
+        // console.log(work);
         if(work==="Order List"){
             setOrderList('activate');
             setAddService("");

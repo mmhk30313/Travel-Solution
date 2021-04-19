@@ -9,11 +9,11 @@ const MakeAdmin = () => {
     const handleSubmit = (evt) =>{
         evt.preventDefault();
         const email = evt.target.email.value;
-        console.log(email);
+        // console.log(email);
         fetch(`http://localhost:5000/admin-email/${email}`)
         .then(res => res.json())
         .then(data => {
-            console.log(data);
+            // console.log(data);
             setAdminEmail(data);
             setModalShow(true);
         })

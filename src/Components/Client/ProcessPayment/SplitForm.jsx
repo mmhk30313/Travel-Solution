@@ -118,7 +118,7 @@ const SplitForm = () => {
       }
     }
     else{
-      console.log("Sorry!!! You didn't select any service for you");
+      // console.log("Sorry!!! You didn't select any service for you");
       alert("Sorry!!! You didn't select any service for you");
       // setWrongMessage("Sorry!!! You didn't select any service for you");
     }
