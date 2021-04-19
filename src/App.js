@@ -13,6 +13,7 @@ import Login from "./Components/Login/Login";
 import PrivateRoute from "./Components/PrivateRoute/PrivateRoute";
 import Admin from "./Components/Admin/Admin";
 import Client from "./Components/Client/Client";
+import NotFound from "./Components/NotFound/NotFound";
 
 
 export const UserContext = createContext();
@@ -58,6 +59,9 @@ function App() {
             {/* <PrivateRoute path="/client/:key">
               <Client/>
             </PrivateRoute> */}
+            <Route path='*/:page'>
+              <NotFound/>
+            </Route>
           </Switch>
         </Router>
         <ScrollToTop showUnder={160}>
