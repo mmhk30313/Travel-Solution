@@ -4,7 +4,7 @@ import React, { useEffect, useState } from 'react';
 const OrderList = () => {
     const [allUserServices, setAllUserServices] = useState([]);
     useEffect(() =>{
-        fetch("http://localhost:5000/all-user-services")
+        fetch("https://travel-solution-server.herokuapp.com/all-user-services")
         .then(res => res.json())
         .then(data =>{
             // console.log(data);
@@ -17,7 +17,7 @@ const OrderList = () => {
         // console.log(id+" => "+ statusId.value);
         statusId.classList.remove(...statusId.classList);
         statusId.classList.add("bg-"+statusId.value, "border-none", "form-select", "form-select-lg", "p-2", "rounded");
-        fetch(`http://localhost:5000/update-status/${id}`, {
+        fetch(`https://travel-solution-server.herokuapp.com/update-status/${id}`, {
             method: "POST",
             body: JSON.stringify({status: statusId.value}),
             headers: {

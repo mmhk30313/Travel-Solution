@@ -6,7 +6,7 @@ const BookingList = () => {
     const [loggedInUser] = useContext(UserContext);
     const [clientServices, setClientServices] = useState([]);
     useEffect(() =>{
-        fetch(`http://localhost:5000/client-all-services?email=${loggedInUser.email}`)
+        fetch(`https://travel-solution-server.herokuapp.com/client-all-services?email=${loggedInUser.email}`)
         .then(res => res.json())
         .then(data => {
             // console.log(data);

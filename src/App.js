@@ -22,7 +22,7 @@ function App() {
   const [allClients, setAllClients] = useState([]);
   const [allHotels, setAllHotels] = useState([]);
   useEffect(() => {
-    fetch('http://localhost:5000/services')
+    fetch('https://travel-solution-server.herokuapp.com/services')
     .then(res => res.json())
     .then( data => {
         setAllServices(data);

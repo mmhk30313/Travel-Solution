@@ -10,7 +10,7 @@ const MakeAdmin = () => {
         evt.preventDefault();
         const email = evt.target.email.value;
         // console.log(email);
-        fetch(`http://localhost:5000/admin-email/${email}`)
+        fetch(`https://travel-solution-server.herokuapp.com/admin-email/${email}`)
         .then(res => res.json())
         .then(data => {
             // console.log(data);

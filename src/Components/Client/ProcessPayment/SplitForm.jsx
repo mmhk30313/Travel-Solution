@@ -49,7 +49,7 @@ const SplitForm = () => {
   
   useEffect(() =>{
     if(id !== "booking"){
-      fetch(`http://localhost:5000/client-one-service/${id}`)
+      fetch(`https://travel-solution-server.herokuapp.com/client-one-service/${id}`)
       .then(res => res.json())
       .then(data => {
         // console.log(data);
@@ -98,7 +98,7 @@ const SplitForm = () => {
           description: clientService.description,
           photoURL: clientService.imgUrl
         }
-        fetch('http://localhost:5000/client-services', {
+        fetch('https://travel-solution-server.herokuapp.com/client-services', {
           method: 'POST',
           body: JSON.stringify(clientServiceDetails),
           headers: {

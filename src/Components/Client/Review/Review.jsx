@@ -18,7 +18,7 @@ const Review = () => {
             description: evt.target.description.value
         }
         console.log(review);
-        fetch("http://localhost:5000/review", {
+        fetch("https://travel-solution-server.herokuapp.com/review", {
             method: 'POST',
             body: JSON.stringify(review),
             headers: {

@@ -41,7 +41,7 @@ const AddService = () => {
             }
             // console.log(serviceDetails);
             setAddedService(serviceDetails);
-            fetch('http://localhost:5000/addService', {
+            fetch('https://travel-solution-server.herokuapp.com/addService', {
                 method: "POST",
                 body: JSON.stringify(serviceDetails),
                 headers: {
@@ -58,7 +58,7 @@ const AddService = () => {
         // .....MODAL Bootstrap......
                 setModalShow(true);
 
-                fetch('http://localhost:5000/services')
+                fetch('https://travel-solution-server.herokuapp.com/services')
                 .then(res => res.json())
                 .then(data => {
                         // console.log(data);

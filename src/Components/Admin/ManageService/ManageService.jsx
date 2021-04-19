@@ -4,18 +4,18 @@ import deleteIcon from '../../../images/Icon/deleteIcon.png';
 const ManageService = () => {
     const [services, setServices] = useState([]);
     useEffect(() =>{
-        fetch('http://localhost:5000/services')
+        fetch('https://travel-solution-server.herokuapp.com/services')
         .then(res => res.json())
         .then(data => setServices(data));
     },[])
     const handleDeleteService =(id) =>{
         // console.log(id);
-        fetch(`http://localhost:5000/delete-service/${id}`)
+        fetch(`https://travel-solution-server.herokuapp.com/delete-service/${id}`)
         .then(res => res.json())
         .then(data =>{
             // console.log(data);
             if(data.deletedCount){
-                fetch('http://localhost:5000/services')
+                fetch('https://travel-solution-server.herokuapp.com/services')
                 .then(res => res.json())
                 .then(data => setServices(data));
             }

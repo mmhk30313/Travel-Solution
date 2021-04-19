@@ -8,7 +8,7 @@ import WithStyles from './WithStyles';
 const Testimonials = () => {
     const [clientReviews, setClientReviews] = useState([]);
     useEffect(() => {
-        fetch("http://localhost:5000/all-reviews")
+        fetch("https://travel-solution-server.herokuapp.com/all-reviews")
         .then(res => res.json())
         .then(data => {
             // console.log(data);

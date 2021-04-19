@@ -30,7 +30,7 @@ const Login = () => {
             // console.log(location.state)
             setMyUser('client');
         }
-        fetch(`http://localhost:5000/find-admins`)
+        fetch(`https://travel-solution-server.herokuapp.com/find-admins`)
         .then(res => res.json())
         .then(data => {
         //    console.log(data);
