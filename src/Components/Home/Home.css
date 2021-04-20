@@ -1,5 +1,8 @@
-.bg-brand{
+.bg-brand,.bg-brand-booking{
     background-image: linear-gradient(360deg, #9FE2FE, #C8EDFE);
+}
+.bg-brand-booking{
+    /* clip-path: polygon(1% 0, 100% 0, 100% 86%, 0% 100%); */
 }
 .bg-brand1{
     /* background-image: linear-gradient(360deg, #C8EDFE, #C8EDFE); */
@@ -27,7 +30,7 @@
     } */
 @keyframes float{
     50%{
-        transform: scale(1.11);
+        transform: scale(1.05);
     }
 }
 

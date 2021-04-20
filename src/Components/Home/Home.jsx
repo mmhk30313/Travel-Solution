@@ -11,7 +11,7 @@ import Testimonials from './Testimonials/Testimonials';
 const Home = () => {
     return (
         <div className="">
-            <div className="bg-brand">
+            <div className="bg-brand-booking">
                <div> <Booking/></div>
                 <div style={{ 
                         position: "absolute",
@@ -49,7 +49,7 @@ const Home = () => {
             </div>
             <div className="bg-special">
                 <Footer/>    
-            </div> 
+            </div>  
         </div>
     );
 };

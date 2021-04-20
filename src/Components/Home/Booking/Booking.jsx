@@ -10,8 +10,9 @@ const Booking = () => {
             <div className="row">
                 <div data-aos="zoom-in-up" data-aos-duration="2000" style={{zIndex: '999'}} className="col-md-5 my-auto">
                     <h2 style={{color: '#EF8C06'}} className="font-weight-bold">Travelling???</h2>
-                    <h4 style={{color: '#12027a'}} className="font-weight-bold">
+                    <h3 style={{color: '#12027a'}} className="font-weight-bold">
                     We are here, <br/><span className="text-danger">
+                    {/* with everything you need!!! */}
                             <Typewriter
                                 options={{
                                     strings: [' for your journey!!!', " for your mission!!!", '  & with everything you need!!!'],
@@ -20,7 +21,7 @@ const Booking = () => {
                                 }}
                             />
                         </span>
-                    </h4>
+                    </h3>
                     <p><small>Online Travel Agency, the mordern way to travel from your home to  your destination, You can travel all over the world.</small></p>
                     <Link to={loggedInUser.userType === 'client' ? `/${loggedInUser.userType}/booking` : loggedInUser.userType === 'admin' ? `/${loggedInUser.userType}` : '/login'} className="btn btn-brand rounded p-2 text-decoration-none">Booking</Link>
                 </div>
