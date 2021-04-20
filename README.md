@@ -10,7 +10,7 @@
 
  ### Description:
     
-    * It is a real life, user friendly, single page full stack React app
+    * It is a real life, user friendly, single page, full stack, React web application
     * User can easily take different kinds of travel services from my travel solution app
     * This web app also provides multi-services on travelling
  

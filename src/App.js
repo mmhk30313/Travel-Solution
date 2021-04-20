@@ -14,7 +14,12 @@ import PrivateRoute from "./Components/PrivateRoute/PrivateRoute";
 import Admin from "./Components/Admin/Admin";
 import Client from "./Components/Client/Client";
 import NotFound from "./Components/NotFound/NotFound";
-
+import AOS from "aos";
+import "aos/dist/aos.css";
+import Contact from "./Components/Home/Contact/Contact";
+import AllServices from "./Components/Home/AllServices/AllServices";
+import Footer from "./Components/Home/Footer/Footer";
+AOS.init();
 
 export const UserContext = createContext();
 function App() {
@@ -29,6 +34,7 @@ function App() {
         setAllServices(data);
     })
     .catch(err => console.log(err, loggedInUser, setLoggedInUser))
+    
   },[])
   return (
     <div className="m-0 p-0">
@@ -47,9 +53,24 @@ function App() {
               <Navigation/>
               <Login/>
             </Route>
-            {/* <Route path="/admin">
-              <Admin/>
-            </Route> */}
+            <Route path="/contact">
+              <Navigation/>
+              <div className="bg-brand2">
+                <Contact/>  
+              </div>
+              <div className="bg-special">
+                <Footer/>
+              </div>
+            </Route>
+            <Route path="/projects">
+              <Navigation/>
+              <div className="bg-brand2">
+                <AllServices/>  
+              </div>
+              <div className="bg-special">
+                <Footer/>
+              </div>
+            </Route>
             <PrivateRoute path="/admin">
               <Admin/>
             </PrivateRoute>
@@ -65,7 +86,7 @@ function App() {
           </Switch>
         </Router>
         <ScrollToTop showUnder={160}>
-          <p className='btn btn-info text-danger font-weight-bold rounded-circle'>UP</p>
+          <p style={{zIndex: '1000'}} className='btn btn-info text-danger font-weight-bold rounded-circle'>UP</p>
         </ScrollToTop>
       </UserContext.Provider>
     </div>

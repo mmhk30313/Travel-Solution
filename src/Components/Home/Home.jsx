@@ -1,4 +1,5 @@
 import React from 'react';
+import { Simple, Snows } from '../ParticleComponent/ParticleComponent';
 import AllServices from './AllServices/AllServices';
 import Booking from './Booking/Booking';
 import Contact from './Contact/Contact';
@@ -11,7 +12,25 @@ const Home = () => {
     return (
         <div className="">
             <div className="bg-brand">
-                <Booking/>
+               <div> <Booking/></div>
+                <div style={{ 
+                        position: "absolute",
+                        top: 81,
+                        left: 0,
+                        height: '67.6vh',
+                        overflow: 'hidden',
+                        width: "100%",
+                        zIndex: '1'
+                    }
+                }
+                >
+                    <div className="snow"><Snows/></div>
+                    <div className="particle"><Simple/></div>
+                    <div className="particle"><Simple/></div>
+                    <div className="particle"><Simple/></div>
+                    <div className="particle"><Simple/></div>
+                </div>
+                
             </div>
             <div className="bg-brand1">
                 <Hotels/>  

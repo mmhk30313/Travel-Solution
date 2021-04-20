@@ -1,5 +1,5 @@
 import React from 'react';
-
+import star from '../../../images/Icon/star.png';
 const WithStyles = ({review}) => {
     
     const {name, img, description, company} = review;
@@ -13,9 +13,13 @@ const WithStyles = ({review}) => {
                         <p>{company}</p>
                     </div>
                 </div>
-                <p className="text-justify text-success"><small>{description}</small></p>
+                <p className="text-justify rounded mt-1 client-description text-success"><small>{description}</small></p>
+                <div className="d-flex">
+                    {
+                        [0,1,2,1,3].map((i, idx) => <img style={{height: '18px'}} key={idx} src={star} alt=''/>)
+                    }
+                </div>
             </div>
-
         </div>
     );
 };

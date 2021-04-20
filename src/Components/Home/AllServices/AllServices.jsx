@@ -27,10 +27,10 @@ const AllServices = () => {
     // console.log(allServices, services);
     return (
         <div className="container py-4">
-            <h3 className="text-center font-weight-bold pb-2 color-brand">Services</h3>
+            <h3 data-aos="fade-down" data-aos-duration="1000" className="text-center mt-3 font-weight-bold pb-2 color-brand">Services</h3>
             
             <h5 className="text-center font-weight-bold">We're an agency tailored to all clients' needs that always delivers</h5>
-            <p className="text-center text-danger font-weight-bold"><>To see all services, please click the "Explore" button</></p>
+            <p className="floating text-center text-danger font-weight-bold"><small>To see all services, please click the <span className="color-brand">"Explore"</span> button</small></p>
             {
                 allServices.length
                 ? <>

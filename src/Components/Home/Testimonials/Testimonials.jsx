@@ -19,7 +19,7 @@ const Testimonials = () => {
     // console.log(clientReviews);
     return (
         <div className="container py-4">
-            <h3 className='text-center color-brand font-weight-bold my-3'>Testimonials</h3>
+            <h3 className='floating text-center color-brand font-weight-bold my-3'>Testimonials</h3>
             <Carousel
                 additionalTransfrom={0}
                 arrows={false}

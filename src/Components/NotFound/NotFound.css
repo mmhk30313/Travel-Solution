@@ -1,0 +1,19 @@
+.content{
+    min-height: 100vh;
+}
+.particle{
+    display: none;
+}
+@media (max-width: 1023px){
+    .content{
+        height: 140vh !important;
+    }
+    @media( max-width: 767px){
+        .particle{
+            display: block !important;
+        }
+        .snow{
+            display: none !important;
+        }
+    }
+}

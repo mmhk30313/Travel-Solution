@@ -17,3 +17,24 @@
   -webkit-text-fill-color: transparent;
     /* color: #59E783 !important; */
 }
+.floating{
+    /*     transition: all 2s; */
+    font-family: Poppins;
+    font-weight: 800;
+    animation: float 1s ease-in-out infinite;
+}
+    /* .info h4{
+    } */
+@keyframes float{
+    50%{
+        transform: scale(1.11);
+    }
+}
+
+.client-description{
+    height: 90px;
+    overflow-y: scroll;
+}
+.client-description::-webkit-scrollbar {
+    display: none;
+}
