@@ -1,8 +1,24 @@
-.bg-brand,.bg-brand-booking{
+.bg-brand{
     background-image: linear-gradient(360deg, #9FE2FE, #C8EDFE);
 }
-.bg-brand-booking{
+.clip-up{
+    clip-path: polygon(96% 4%, 100% 0, 100% 100%, 72% 100%, 0 100%, 0 0, 4% 4%);
+}
+.clip-down{
     /* clip-path: polygon(1% 0, 100% 0, 100% 86%, 0% 100%); */
+    /* clip-path: polygon(50% 0%, 100% 0, 100% 99%, 89% 93%, 11% 93%, 0 100%, 0 0); */
+    clip-path: polygon(50% 0%, 100% 0, 100% 100%, 96% 96%, 4% 96%, 0 100%, 0 0);
+}
+
+@media (max-width: 765px){  
+    .clip-up{
+        clip-path: polygon(90% 1%, 100% 0, 100% 100%, 72% 100%, 0 100%, 0 0, 10% 1%) !important;
+    }
+    .clip-down{
+        /* clip-path: polygon(1% 0, 100% 0, 100% 86%, 0% 100%); */
+        /* clip-path: polygon(50% 0%, 100% 0, 100% 99%, 89% 93%, 11% 93%, 0 100%, 0 0); */
+        clip-path: polygon(50% 0%, 100% 0, 100% 100%, 90% 98%, 10% 98%, 0 100%, 0 0);
+    }
 }
 .bg-brand1{
     /* background-image: linear-gradient(360deg, #C8EDFE, #C8EDFE); */
@@ -34,10 +50,3 @@
     }
 }
 
-.client-description{
-    height: 90px;
-    overflow-y: scroll;
-}
-.client-description::-webkit-scrollbar {
-    display: none;
-}

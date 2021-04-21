@@ -37,7 +37,7 @@ function App() {
     
   },[])
   return (
-    <div className="m-0 p-0">
+    <div className="app m-0 p-0">
       <UserContext.Provider value={[loggedInUser, setLoggedInUser, allServices, setAllServices, allClients, setAllClients,allHotels, setAllHotels]}>
         <Router>
           <Switch>
