@@ -37,7 +37,7 @@ const Home = () => {
                     <div className="bg-brand1">
                         <Hotels/>  
                     </div>
-                    <div className="bg-brand2 clip-up">
+                    <div className="bg-brand2 clip-up pt-4">
                         <AllServices/>  
                     </div>
                 </div>

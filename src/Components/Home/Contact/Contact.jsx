@@ -89,31 +89,29 @@ function MyVerticallyCenteredModal(props) {
         size="lg"
         aria-labelledby="contained-modal-title-vcenter"
         centered
+        
       >
-        <Modal.Header closeButton>
-          <Modal.Title  id="contained-modal-title-vcenter">
-          {
+        <Modal.Header className="bg-dark btn-close-white" closeButton>
+            <Modal.Body className="bg-dark text-center py-3">
+        {
                 !wrongMessage
                 ? <><div className="d-flex justify-content-between">
                     <p className="mt-3">WELCOME!!!</p>
                     <img data-aos="zoom-in-up" data-aos-duration="3000" data-aos-anchor-placement="center-center" className="rounded rounded-circle" src={user.photoURL} alt=""/>
                 </div>
-                <p className="text-warning">YOUR EMAIL IS SENT TO <span className="text-info">TRAVEL SOLUTION AGENCY</span></p></>
-                : <p className='text-danger'>{wrongMessage}</p>
+                <p className="text-success font-weight-bold"><> YOUR EMAIL HAS BEEN SENT TO <span className="text-warning">TRAVEL SOLUTION AGENCY!!!</span></></p></>
+                : <>
+                <p className="text-success font-weight-bold"><> YOUR EMAIL HAS BEEN SENT TO <span className="text-warning">TRAVEL SOLUTION AGENCY!!!</span></></p></>
             }
-          </Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-          <div className="w-100 mx-auto">
+          <div className="w-100 mx-auto pt-4">
               <div className="">
-                  <h3 className="text-center text-warning">Thanks you for communicating with our agency</h3>
-                  <h4 className="text-center text-danger">Wish you all the best</h4>
+                  <p className="text-center text-success">Thanks for your  mail. Our team will response as soon as possible.</p>
+                  <h4 className="text-center text-warning">Stay with us.</h4>
               </div>
           </div>
+          <button className="btn btn-danger mt-5" onClick={props.onHide}>Back</button>
         </Modal.Body>
-        <Modal.Footer>
-          <button className="btn btn-danger" onClick={props.onHide}>Back</button>
-        </Modal.Footer>
+        </Modal.Header>
       </Modal>
     );
   }

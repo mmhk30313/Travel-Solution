@@ -42,7 +42,7 @@ const AllServices = () => {
                                         <img className="rounded mx-auto w-25" src={service.imgUrl} alt=""/>
                                         <h6 style={{fontSize: "18px"}} className="mt-2">{service.serviceName}</h6>
                                         <h6>${service.price}</h6>
-                                        <p style={{fontSize: '14px'}}>{service.description}</p>
+                                        <p className="scroll-off" style={{fontSize: '14px', height: '60px', overflowY: 'scroll'}}>{service.description}</p>
                                     </Link>
                                 </div>
                             )
@@ -51,7 +51,7 @@ const AllServices = () => {
                                         <img className="rounded mx-auto w-25" src={service.imgUrl} alt=""/>
                                         <h6 style={{fontSize: "18px"}} className="mt-2">{service.serviceName}</h6>
                                         <h6>${service.price}</h6>
-                                        <p style={{fontSize: '14px'}}>{service.description}</p>
+                                        <p className="scroll-off" style={{fontSize: '14px', height: '60px', overflowY: 'scroll'}}>{service.description}</p>
                                     </Link>
                                 </div>
                             )

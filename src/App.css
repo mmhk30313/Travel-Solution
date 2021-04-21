@@ -2,6 +2,6 @@
   height: 90px;
   overflow-y: scroll;
 }
-.client-description::-webkit-scrollbar, body::-webkit-scrollbar {
+.client-description::-webkit-scrollbar, body::-webkit-scrollbar, .scroll-off::-webkit-scrollbar {
   display: none;
 }

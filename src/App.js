@@ -19,6 +19,7 @@ import "aos/dist/aos.css";
 import Contact from "./Components/Home/Contact/Contact";
 import AllServices from "./Components/Home/AllServices/AllServices";
 import Footer from "./Components/Home/Footer/Footer";
+import AboutUs from "./Components/AboutUs/AboutUs";
 AOS.init();
 
 export const UserContext = createContext();
@@ -49,6 +50,15 @@ function App() {
               <Navigation/>
               <Home/>
             </Route>
+            <Route path='/about'>
+              <Navigation/>
+              <div className="bg-light">
+                <AboutUs/>
+                <div className="bg-special clip-up pb-2 pt-4">
+                  <Footer/>
+                </div>
+              </div>
+            </Route>
             <Route path='/login'>
               <Navigation/>
               <Login/>
@@ -58,7 +68,7 @@ function App() {
               <div className="bg-brand2">
                 <Contact/>  
               </div>
-              <div className="bg-special">
+              <div className="bg-special clip-up pb-2 pt-4">
                 <Footer/>
               </div>
             </Route>
@@ -67,7 +77,7 @@ function App() {
               <div className="bg-brand2">
                 <AllServices/>  
               </div>
-              <div className="bg-special">
+              <div className="bg-special clip-up pb-2 pt-4">
                 <Footer/>
               </div>
             </Route>
