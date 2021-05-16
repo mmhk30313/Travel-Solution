@@ -30,4 +30,4 @@
     * It is a single page web application
     * User Friendly
     * Firebase Auth is available here
-    * Admin panel is also only for Travel Solution admin 
+    * Admin panel is also only for Travel Solution admin
